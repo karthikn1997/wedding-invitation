@@ -264,6 +264,143 @@ img {
     transform: translateY(-1.2%);
   }
 }
+@keyframes string-sway {
+  0%,
+  100% {
+    transform: rotate(-2.6deg);
+  }
+  50% {
+    transform: rotate(2.6deg);
+  }
+}
+@keyframes lamp-swing {
+  0%,
+  100% {
+    transform: rotate(-3.2deg);
+  }
+  50% {
+    transform: rotate(3.2deg);
+  }
+}
+@keyframes lamp-halo {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+@keyframes bulb-glow {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  25% {
+    transform: scale(0.9, 1.14);
+    opacity: 0.9;
+  }
+  55% {
+    transform: scale(1.07, 0.92);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(0.95, 1.08);
+    opacity: 0.94;
+  }
+}
+@keyframes butterfly-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(6deg);
+  }
+  25% {
+    transform: translate3d(calc(var(--bf-x, 8vw) * 0.5), calc(var(--bf-y, -6vh) * 1.2), 0) rotate(-14deg);
+  }
+  50% {
+    transform: translate3d(var(--bf-x, 8vw), calc(var(--bf-y, -6vh) * 0.3), 0) rotate(12deg);
+  }
+  75% {
+    transform: translate3d(calc(var(--bf-x, 8vw) * 0.45), var(--bf-y, -6vh), 0) rotate(-8deg);
+  }
+}
+@keyframes wing-flap {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.28);
+  }
+}
+@keyframes heart-rise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.6) rotate(-8deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--h-o, 0.7);
+  }
+  50% {
+    transform: translate3d(var(--h-x, 30px), -60svh, 0) scale(1) rotate(8deg);
+  }
+  90% {
+    opacity: var(--h-o, 0.7);
+  }
+  100% {
+    transform: translate3d(calc(var(--h-x, 30px) * -0.6), -120svh, 0) scale(0.9) rotate(-6deg);
+    opacity: 0;
+  }
+}
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.09);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.06);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+@keyframes heart-ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+@keyframes streamer-sway {
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
 @keyframes sheen {
   0% {
     transform: translateX(0);
@@ -324,6 +461,55 @@ img {
 .flower-sway {
   animation: flower-sway var(--fs-dur, 8s) ease-in-out var(--fs-delay, 0s) infinite;
 }
+.string-sway {
+  animation: string-sway var(--ss-dur, 6s) ease-in-out var(--ss-delay, 0s) infinite;
+}
+.lamp-swing {
+  animation: lamp-swing 5.5s ease-in-out var(--ls-delay, 0s) infinite;
+}
+.lamp-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: lamp-halo 3.4s ease-in-out infinite;
+}
+.bulb-glow {
+  animation: bulb-glow 3.2s ease-in-out infinite;
+}
+.flame {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flicker 1.5s ease-in-out infinite;
+}
+.butterfly {
+  animation: butterfly-drift var(--bf-dur, 20s) ease-in-out infinite;
+}
+.butterfly .wing {
+  animation: wing-flap 0.55s ease-in-out infinite;
+}
+.heart-float {
+  position: absolute;
+  bottom: -40px;
+  will-change: transform, opacity;
+  animation: heart-rise var(--h-dur, 14s) ease-in-out var(--h-delay, 0s) infinite both;
+}
+.heartbeat {
+  transform-origin: 50% 55%;
+  animation: heartbeat 1.8s ease-in-out infinite;
+}
+.heart-ripple {
+  transform-origin: 50% 55%;
+  animation: heart-ripple 2.7s ease-out var(--hr-delay, 0s) infinite;
+}
+.streamer-sway {
+  animation: streamer-sway var(--st-dur, 5s) ease-in-out var(--st-delay, 0s) infinite;
+}
+.text-rose-gradient {
+  background-image: linear-gradient(180deg, #e2607f 0%, #b23050 55%, #82233a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
 .float-soft {
   animation: float-soft 6s ease-in-out infinite;
 }
@@ -348,6 +534,7 @@ img {
     scroll-behavior: auto;
   }
   html:not([data-motion="full"]) .petal,
+  html:not([data-motion="full"]) .heart-float,
   html:not([data-motion="full"]) .particle {
     display: none;
   }
@@ -356,6 +543,16 @@ img {
   html:not([data-motion="full"]) .flower-sway,
   html:not([data-motion="full"]) .sheen,
   html:not([data-motion="full"]) .float-soft,
+  html:not([data-motion="full"]) .heartbeat,
+  html:not([data-motion="full"]) .heart-ripple,
+  html:not([data-motion="full"]) .streamer-sway,
+  html:not([data-motion="full"]) .string-sway,
+  html:not([data-motion="full"]) .lamp-swing,
+  html:not([data-motion="full"]) .lamp-halo,
+  html:not([data-motion="full"]) .bulb-glow,
+  html:not([data-motion="full"]) .flame,
+  html:not([data-motion="full"]) .butterfly,
+  html:not([data-motion="full"]) .butterfly .wing,
   html:not([data-motion="full"]) .halo,
   html:not([data-motion="full"]) .scroll-cue-line {
     animation: none !important;

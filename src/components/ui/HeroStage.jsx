@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { EASE } from "../../lib/motion";
 import { Mandala } from "./Ornaments";
 import FlowerCluster from "./Peonies";
+import HeroCorners from "./HeroCorners";
 
 /**
  * The hero "set": a carved wooden arch on a damask wall, a deep-burgundy opening, a blush floor and
@@ -138,6 +139,9 @@ function HeroStage({ opened, reduce, start = 0.5, children }) {
     <div className="absolute inset-0 overflow-hidden bg-[#2a1810]" style={{ backgroundImage: WALL_LATTICE }} aria-hidden={undefined}>
       {/* soft vignette over the wall */}
       <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 70% at 50% 45%, transparent 40%, rgb(12 4 2 / .6) 100%)" }} />
+
+      {/* festive dressing for the upper corners of the wall */}
+      <HeroCorners opened={opened} reduce={reduce} start={start} />
 
       <div className="@container relative mx-auto h-full w-[min(100%,calc(100svh*0.7))] md:mt-14 md:h-[calc(100%-3.5rem)]">
         {/* opening below the arch head */}
