@@ -177,10 +177,10 @@ function HeroStage({ opened, reduce, start = 0.5, children }) {
         </div>
 
         {/* floor */}
-        <div className="pointer-events-none absolute inset-x-[-100vw] bottom-0 h-[13%]">
+        {/* <div className="pointer-events-none absolute inset-x-[-100vw] bottom-0 h-[13%]">
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #e9adb4 0%, #d9919b 45%, #c67b88 100%)", boxShadow: "0 -14px 26px -6px rgb(18 4 8 / .55)" }} />
           <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 45% 90% at 50% 0%, rgb(255 232 226 / .45), transparent 70%)" }} />
-        </div>
+        </div> */}
 
         {/* peonies */}
         <motion.div className="pointer-events-none absolute bottom-[-1%] -left-[12%] w-[54cqw] origin-bottom-left" {...grow(start + 1.5, { y: 50, scale: 0.86 })}>

@@ -401,6 +401,73 @@ img {
     transform: rotate(2deg);
   }
 }
+@keyframes aura-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.05);
+  }
+}
+@keyframes glint {
+  0%,
+  55% {
+    transform: translateX(0) skewX(-14deg);
+  }
+  100% {
+    transform: translateX(520%) skewX(-14deg);
+  }
+}
+@keyframes comet {
+  to {
+    stroke-dashoffset: -50;
+  }
+}
+@keyframes text-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+@keyframes run-y {
+  0% {
+    transform: translateY(-120%);
+  }
+  100% {
+    transform: translateY(320%);
+  }
+}
+@keyframes run-x {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+@keyframes gem-twinkle {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.5) saturate(1.2);
+  }
+}
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6vmin, 5vmin, 0) scale(1.15);
+  }
+}
 @keyframes sheen {
   0% {
     transform: translateX(0);
@@ -510,6 +577,54 @@ img {
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
+.aura {
+  animation: aura-pulse 5s ease-in-out infinite;
+}
+.glint {
+  animation: glint 6.5s var(--ease-cinema) 1.5s infinite;
+}
+.comet {
+  filter: drop-shadow(0 0 3px #fff3c4) drop-shadow(0 0 7px rgb(240 190 110 / 0.9));
+  animation: comet 7s linear infinite;
+}
+.text-shimmer {
+  background-image: linear-gradient(100deg, #f0dca8 0%, #fff8e3 20%, #d9b96e 40%, #f6e8bf 60%, #fffdf2 80%, #e2c47d 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 6s linear infinite;
+}
+.run-y {
+  animation: run-y 3.2s ease-in-out infinite;
+}
+.run-x {
+  animation: run-x 3.2s ease-in-out infinite;
+}
+.gem {
+  animation: gem-twinkle 2.4s ease-in-out infinite;
+}
+.aurora {
+  animation: aurora-drift 22s ease-in-out var(--au-delay, 0s) infinite;
+}
+.badge-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgb(255 244 214 / 0.55) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: run-badge 4.5s ease-in-out 1s infinite;
+}
+@keyframes run-badge {
+  0%,
+  40% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
 .float-soft {
   animation: float-soft 6s ease-in-out infinite;
 }
@@ -543,6 +658,15 @@ img {
   html:not([data-motion="full"]) .flower-sway,
   html:not([data-motion="full"]) .sheen,
   html:not([data-motion="full"]) .float-soft,
+  html:not([data-motion="full"]) .aura,
+  html:not([data-motion="full"]) .glint,
+  html:not([data-motion="full"]) .comet,
+  html:not([data-motion="full"]) .text-shimmer,
+  html:not([data-motion="full"]) .run-y,
+  html:not([data-motion="full"]) .run-x,
+  html:not([data-motion="full"]) .gem,
+  html:not([data-motion="full"]) .aurora,
+  html:not([data-motion="full"]) .badge-shine::after,
   html:not([data-motion="full"]) .heartbeat,
   html:not([data-motion="full"]) .heart-ripple,
   html:not([data-motion="full"]) .streamer-sway,
