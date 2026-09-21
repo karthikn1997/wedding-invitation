@@ -468,6 +468,51 @@ img {
     transform: translate3d(6vmin, 5vmin, 0) scale(1.15);
   }
 }
+@keyframes tick-ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.32);
+    opacity: 0;
+  }
+}
+@keyframes lantern-rise {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-4deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: var(--l-o, 0.8);
+  }
+  50% {
+    transform: translate3d(var(--l-x, 30px), -60%, 0) rotate(4deg);
+  }
+  92% {
+    opacity: var(--l-o, 0.8);
+  }
+  100% {
+    transform: translate3d(calc(var(--l-x, 30px) * -0.7), -125%, 0) rotate(-3deg);
+    opacity: 0;
+  }
+}
+@keyframes shoot {
+  0%,
+  70% {
+    transform: translate3d(0, 0, 0) rotate(28deg) scaleX(0.2);
+    opacity: 0;
+  }
+  72% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(28deg) scaleX(1);
+  }
+  88%,
+  100% {
+    transform: translate3d(-42vmin, 22vmin, 0) rotate(28deg) scaleX(0.6);
+    opacity: 0;
+  }
+}
 @keyframes sheen {
   0% {
     transform: translateX(0);
@@ -625,6 +670,26 @@ img {
     transform: translateX(120%);
   }
 }
+.tick-ripple {
+  animation: tick-ripple 0.95s ease-out both;
+}
+.sky-lantern {
+  position: absolute;
+  top: 100%;
+  will-change: transform, opacity;
+  animation: lantern-rise var(--l-dur, 26s) ease-in-out var(--l-delay, 0s) infinite both;
+}
+.shooting-star {
+  position: absolute;
+  width: 110px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgb(255 244 214 / 0), #fff6d6);
+  filter: drop-shadow(0 0 5px #ffe9a8);
+  transform-origin: 100% 50%;
+  opacity: 0;
+  animation: shoot var(--sh-dur, 10s) ease-out var(--sh-delay, 0s) infinite;
+}
 .float-soft {
   animation: float-soft 6s ease-in-out infinite;
 }
@@ -650,6 +715,9 @@ img {
   }
   html:not([data-motion="full"]) .petal,
   html:not([data-motion="full"]) .heart-float,
+  html:not([data-motion="full"]) .sky-lantern,
+  html:not([data-motion="full"]) .shooting-star,
+  html:not([data-motion="full"]) .tick-ripple,
   html:not([data-motion="full"]) .particle {
     display: none;
   }

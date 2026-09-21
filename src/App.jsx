@@ -56,13 +56,13 @@ export default function App() {
           <Couple />
           <Story />
           <Countdown />
-          <Events />
+          {/* <Events /> */}
           <Ceremony />
           <Venue />
           <Gallery />
           <Places />
           <Guide />
-          <RSVP />
+          {/* <RSVP /> */}
           <ThankYou />
         </main>
 
