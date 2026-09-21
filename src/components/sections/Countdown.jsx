@@ -65,7 +65,7 @@ export default function Countdown() {
         </motion.p>
       </motion.div>
 
-      <DiyaRow />
+      {/* <DiyaRow /> */}
     </section>
   );
 }

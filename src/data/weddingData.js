@@ -340,12 +340,12 @@ export const weddingData = {
     { id: "home", label: "Home", primary: true },
     { id: "story", label: "Story", primary: true },
     { id: "countdown", label: "Countdown" },
-    { id: "events", label: "Events", primary: true },
-    { id: "gallery", label: "Gallery", primary: true },
+    // { id: "events", label: "Events", primary: true },
+    // { id: "gallery", label: "Gallery", primary: true },
     { id: "venue", label: "Venue", primary: true },
     { id: "explore", label: "Explore" },
-    { id: "guide", label: "Guest Guide" },
-    { id: "rsvp", label: "RSVP", primary: true },
+    // { id: "guide", label: "Guest Guide" },
+    // { id: "rsvp", label: "RSVP", primary: true },
   ],
 };
 
