@@ -167,7 +167,7 @@ export default function Opening({ onOpen, onDone }) {
           <div className="flex flex-col items-center gap-0 leading-[0.92] sm:gap-1 md:flex-row md:gap-8">
             <RevealText
               as="p"
-              text={bride.name}
+              text={groom.name}
               active={shown(3)}
               duration={1.6}
               wordClassName="text-gold-gradient"
@@ -184,7 +184,7 @@ export default function Opening({ onOpen, onDone }) {
             </motion.span>
             <RevealText
               as="p"
-              text={groom.name}
+              text={bride.name}
               active={shown(3)}
               duration={1.6}
               delay={0.6}

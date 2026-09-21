@@ -46,7 +46,7 @@ export default function Navigation({ visible }) {
   if (!visible) return null;
 
   const primary = nav.filter((n) => n.primary);
-  const monogram = `${bride.name[0]} & ${groom.name[0]}`;
+  const monogram = `${groom.name[0]} & ${bride.name[0]}`;
 
   return (
     <>

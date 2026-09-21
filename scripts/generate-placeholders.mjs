@@ -409,9 +409,9 @@ try {
       `<circle cx="600" cy="315" r="270" fill="none" stroke="#c39c47" stroke-opacity=".25" stroke-width="1" stroke-dasharray="2 8"/>` +
       `<rect x="24" y="24" width="1152" height="582" fill="none" stroke="#c39c47" stroke-opacity=".55" stroke-width="2"/>` +
       `<text x="600" y="176" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#f0e2bd">Together with their families</text>` +
-      `<text x="600" y="330" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="112" fill="url(#gold)">Meenakshi</text>` +
+      `<text x="600" y="330" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="112" fill="url(#gold)">Arjun</text>` +
       `<text x="600" y="400" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="60" fill="#d6b56b">&amp;</text>` +
-      `<text x="600" y="500" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="112" fill="url(#gold)">Arjun</text>` +
+      `<text x="600" y="500" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="112" fill="url(#gold)">Meenakshi</text>` +
       `<text x="600" y="570" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" letter-spacing="6" fill="#f0e2bd">17 DECEMBER 2026 · CHENNAI</text>`,
     `<radialGradient id="bg" cx=".5" cy=".5" r=".8"><stop offset="0" stop-color="#5a1526"/><stop offset="1" stop-color="#24080d"/></radialGradient>` + grad("gold", ["#f6e8bf", "#d6b56b", "#b58d3c"]),
   );

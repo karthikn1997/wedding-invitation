@@ -3,7 +3,7 @@ import weddingData from "../data/weddingData";
 const toCompactUTC = (iso) => new Date(iso).toISOString().replace(/[-:]|\.\d{3}/g, "");
 const escapeICS = (s = "") => s.replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\n/g, "\\n");
 
-const fullTitle = (event) => `${event.title} — ${weddingData.bride.name} & ${weddingData.groom.name}`;
+const fullTitle = (event) => `${event.title} — ${weddingData.groom.name} & ${weddingData.bride.name}`;
 const location = (event) => [event.venue, event.address].filter(Boolean).join(", ");
 // If an event has no end time, assume a 3-hour window.
 const endOf = (event) => event.end || new Date(new Date(event.start).getTime() + 3 * 3600 * 1000).toISOString();

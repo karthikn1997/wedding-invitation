@@ -7,6 +7,7 @@ import PlaceCard from "../PlaceCard";
 import FloralCorner from "../ui/FloralCorner";
 
 const { places, wedding } = weddingData;
+const credits = places.filter((p) => p.credit);
 
 export default function Places() {
   const railRef = useRef(null);
@@ -54,6 +55,30 @@ export default function Places() {
           </div>
         </div>
       </div>
+
+      {credits.length > 0 && (
+        <p className="mx-auto mt-10 max-w-3xl px-6 text-center text-[0.68rem] leading-relaxed font-light text-cocoa-700/70">
+          Photos via Wikimedia Commons:{" "}
+          {credits.map((p, i) => (
+            <span key={p.id}>
+              {i > 0 && " · "}
+              <a href={p.credit.source} target="_blank" rel="noopener noreferrer" className="underline decoration-gold-500/40 underline-offset-2 hover:text-gold-700">
+                {p.category}
+              </a>{" "}
+              by {p.credit.author}
+              {p.credit.licenseUrl ? (
+                <>
+                  {" "}
+                  (<a href={p.credit.licenseUrl} target="_blank" rel="noopener noreferrer" className="underline decoration-gold-500/40 underline-offset-2 hover:text-gold-700">{p.credit.license}</a>)
+                </>
+              ) : (
+                ` (${p.credit.license})`
+              )}
+            </span>
+          ))}
+          .
+        </p>
+      )}
     </section>
   );
 }

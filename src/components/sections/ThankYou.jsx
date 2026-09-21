@@ -63,12 +63,12 @@ export default function ThankYou() {
 
           <motion.div {...inView(fadeUp(0.9, 20))} className="mt-12 flex flex-col items-center">
             <p className="font-script text-3xl text-gold-200 sm:text-4xl">{thankYou.signoff}</p>
-            <p className="mt-2 flex flex-col items-center font-display text-3xl font-light tracking-[0.12em] text-ivory-50 uppercase sm:flex-row sm:gap-4 sm:text-4xl" aria-label={`${bride.name} and ${groom.name}`}>
-              <span>{bride.name}</span>
+            <p className="mt-2 flex flex-col items-center font-display text-3xl font-light tracking-[0.12em] text-ivory-50 uppercase sm:flex-row sm:gap-4 sm:text-4xl" aria-label={`${groom.name} and ${bride.name}`}>
+              <span>{groom.name}</span>
               <span className="font-script text-4xl leading-none text-gold-300 normal-case" aria-hidden="true">
                 &amp;
               </span>
-              <span>{groom.name}</span>
+              <span>{bride.name}</span>
             </p>
             <p className="eyebrow mt-6 text-gold-300">{formatFullDate(wedding.startsAt)}</p>
           </motion.div>
@@ -81,7 +81,7 @@ export default function ThankYou() {
             <motion.div style={{ opacity: finaleOpacity, y: finaleY }} className="pointer-events-none absolute inset-0 z-30 flex flex-col items-center justify-center gap-6 text-center">
               <Lotus className="h-12 w-12 text-gold-500" />
               <p className="text-gold-gradient font-display text-[clamp(2.6rem,12vw,5rem)] leading-none font-light">
-                {bride.name[0]} <span className="font-script">&amp;</span> {groom.name[0]}
+                {groom.name[0]} <span className="font-script">&amp;</span> {bride.name[0]}
               </p>
               <p className="eyebrow text-gold-400">{formatNumericDate(wedding.startsAt)}</p>
             </motion.div>

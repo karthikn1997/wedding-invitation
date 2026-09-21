@@ -9,7 +9,7 @@ import { Lotus, Mandala, SparkleStar } from "../ui/Ornaments";
 
 const { bride, groom } = weddingData;
 
-/** One bride/groom block: living frame, glowing role badge, shimmering name, details. */
+/** One groom/bride block: living frame, glowing role badge, shimmering name, details. */
 function PersonCard({ role, person, relation, from, className = "" }) {
   return (
     <article className={`relative ${className}`}>
@@ -95,7 +95,7 @@ function LoveSeal() {
 
 export default function Couple() {
   return (
-    <section id="couple" className="bg-maroon-lattice relative isolate overflow-hidden py-24 sm:py-32" aria-label="The bride and groom">
+    <section id="couple" className="bg-maroon-lattice relative isolate overflow-hidden py-24 sm:py-32" aria-label="The groom and bride">
       {/* atmosphere: slow light rays, drifting aurora glows, gold dust */}
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
         <div
@@ -116,9 +116,9 @@ export default function Couple() {
 
       <div className="relative mx-auto mt-16 max-w-5xl px-6 sm:mt-24">
         <div className="grid items-start gap-20 md:grid-cols-[1fr_auto_1fr] md:gap-8 lg:gap-14">
-          <PersonCard role="The Bride" person={bride} relation="Daughter of" from="left" className="mx-auto w-[82%] max-w-sm justify-self-start md:w-full md:justify-self-end" />
+          <PersonCard role="The Groom" person={groom} relation="Son of" from="left" className="mx-auto w-[82%] max-w-sm justify-self-start md:w-full md:justify-self-end" />
           <LoveSeal />
-          <PersonCard role="The Groom" person={groom} relation="Son of" from="right" className="mx-auto w-[82%] max-w-sm justify-self-end md:mt-28 md:w-full md:justify-self-start" />
+          <PersonCard role="The Bride" person={bride} relation="Daughter of" from="right" className="mx-auto w-[82%] max-w-sm justify-self-end md:mt-28 md:w-full md:justify-self-start" />
         </div>
       </div>
     </section>

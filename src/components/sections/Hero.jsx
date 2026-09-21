@@ -52,9 +52,9 @@ export default function Hero() {
               {invitation.heroKicker}
             </motion.p>
 
-            <h1 className="mt-[1.5cqw] flex flex-col items-center leading-[0.92]" aria-label={`${bride.name} and ${groom.name}`}>
+            <h1 className="mt-[1.5cqw] flex flex-col items-center leading-[0.92]" aria-label={`${groom.name} and ${bride.name}`}>
               <RevealText
-                text={bride.name}
+                text={groom.name}
                 active={opened}
                 delay={T.names}
                 duration={1.6}
@@ -71,7 +71,7 @@ export default function Hero() {
                 &amp;
               </motion.span>
               <RevealText
-                text={groom.name}
+                text={bride.name}
                 active={opened}
                 delay={T.names + 0.7}
                 duration={1.6}

@@ -22,7 +22,7 @@ export const weddingData = {
     url: "",
     ogImage: "/images/og.jpg",
     description:
-      "Together with their families, Meenakshi & Arjun invite you to celebrate their wedding on 17 December 2026 in Chennai.",
+      "Together with their families, Arjun & Meenakshi invite you to celebrate their wedding on 17 December 2026 in Chennai.",
   },
   timezone: "Asia/Kolkata",
   locale: "en-IN",
@@ -81,7 +81,7 @@ export const weddingData = {
       "one beautiful journey,",
       "and a lifetime of memories waiting to be created.",
     ],
-    signature: "— Meenakshi & Arjun",
+    signature: "— Arjun & Meenakshi",
   },
 
   /* ── Our story ──────────────────────────────────────────── */
@@ -184,6 +184,8 @@ export const weddingData = {
   ],
 
   /* ── Places to explore ───────────────────────────────────── */
+  // Photos are openly licensed images from Wikimedia Commons (see `credit`, shown under the section).
+  // To use your own, replace public/images/place-<id>.jpg and delete that place's `credit`.
   places: [
     {
       id: "temple",
@@ -191,8 +193,9 @@ export const weddingData = {
       title: "Kapaleeshwarar Temple",
       description: "A 7th-century Shiva temple with a soaring, sculpted gopuram — beautiful at dawn.",
       distance: "0.9 km",
-      image: "/images/place-temple.svg",
-      alt: "The gopuram of a South Indian temple",
+      image: "/images/place-temple.jpg",
+      alt: "The colourful sculpted gopuram of Kapaleeshwarar Temple in Mylapore",
+      credit: { author: "Srinivasan G", license: "CC BY-SA 2.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0", source: "https://commons.wikimedia.org/wiki/File:Kapaleeswarar_Temple,_Mylapore,_Chennai.jpg" },
       query: "Kapaleeshwarar Temple, Mylapore, Chennai",
     },
     {
@@ -201,8 +204,9 @@ export const weddingData = {
       title: "Marina Beach",
       description: "One of the longest urban beaches in the world. Go at sunrise, or for evening sundal.",
       distance: "3.4 km",
-      image: "/images/place-beach.svg",
-      alt: "Waves rolling onto Marina Beach at sunrise",
+      image: "/images/place-beach.jpg",
+      alt: "Sunrise breaking through clouds over the waves at Marina Beach",
+      credit: { author: "Poornima Haridas", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Sunrise_at_Marina.jpg" },
       query: "Marina Beach, Chennai",
     },
     {
@@ -211,8 +215,9 @@ export const weddingData = {
       title: "Fort St. George",
       description: "The 1644 fort that gave Chennai its beginning, now a museum of the city's story.",
       distance: "6.8 km",
-      image: "/images/place-fort.svg",
-      alt: "The ramparts of a historic fort",
+      image: "/images/place-heritage.jpg",
+      alt: "The colonial facade of a Fort St. George building in Chennai",
+      credit: { author: "L.vivian.richard", license: "Public domain", licenseUrl: "", source: "https://commons.wikimedia.org/wiki/File:Fort_St._George,_Chennai_2.jpg" },
       query: "Fort St. George, Chennai",
     },
     {
@@ -221,8 +226,9 @@ export const weddingData = {
       title: "Mylapore Tiffin Trail",
       description: "Crisp dosai, ghee pongal and a proper filter coffee — the neighbourhood's morning ritual.",
       distance: "0.6 km",
-      image: "/images/place-food.svg",
-      alt: "A South Indian tiffin plate with dosa and chutneys",
+      image: "/images/place-food.jpg",
+      alt: "A steel plate of South Indian tiffin with idli, vada and sambar",
+      credit: { author: "Mannjain92", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:The_South_Indian_Tiffin(Breakfast).jpg" },
       query: "Mylapore famous tiffin restaurants, Chennai",
     },
     {
@@ -231,8 +237,9 @@ export const weddingData = {
       title: "T. Nagar & Pondy Bazaar",
       description: "Silk sarees, gold jewellery and temple-town bargains — a shopper's paradise.",
       distance: "5.1 km",
-      image: "/images/place-shopping.svg",
-      alt: "A busy street of silk and jewellery shops",
+      image: "/images/place-shopping.jpg",
+      alt: "A crowded shopping street in T. Nagar, Chennai, during Diwali",
+      credit: { author: "Arunsarv", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0", source: "https://commons.wikimedia.org/wiki/File:Diwali_Urban_Shopping,_Thiyagaraja_Nagar,_Chennai.jpg" },
       query: "Pondy Bazaar, T. Nagar, Chennai",
     },
   ],

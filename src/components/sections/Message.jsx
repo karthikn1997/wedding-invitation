@@ -184,7 +184,7 @@ export default function Message() {
               transition={{ ...SPRING_POP, delay: 2 }}
               aria-hidden="true"
             >
-              {bride.name[0]} &amp; {groom.name[0]}
+              {groom.name[0]} &amp; {bride.name[0]}
             </motion.span>
           </div>
         </motion.button>

@@ -10,7 +10,7 @@ const setMeta = (selector, attr, value) => {
 export function useDocumentMeta() {
   useEffect(() => {
     const { bride, groom, site } = weddingData;
-    const title = `Wedding Invitation | ${bride.name} & ${groom.name}`;
+    const title = `Wedding Invitation | ${groom.name} & ${bride.name}`;
     const abs = (p) => (site.url ? new URL(p, site.url).toString() : p);
     document.title = title;
     setMeta('meta[name="description"]', "content", site.description);
