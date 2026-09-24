@@ -96,8 +96,8 @@ function Unit({ value, label, max, from, to }) {
         >
           <div className="glint absolute inset-y-0 left-[-70%] w-[45%] opacity-40" style={{ background: "linear-gradient(100deg, transparent 20%, rgb(255 244 214 / .8) 50%, transparent 80%)" }} aria-hidden="true" />
           <div
-            className="text-gold-gradient flex justify-center font-display text-[31cqw] leading-none font-light drop-shadow-[0_0_12px_rgb(240_200_120/0.5)]"
-            style={{ fontVariantNumeric: "lining-nums tabular-nums" }}
+            className="text-gold-gradient flex justify-center font-display text-[31cqw] leading-none font-light"
+            style={{ fontVariantNumeric: "lining-nums tabular-nums", textShadow: "0 0 12px rgb(240 200 120 / 0.5)" }}
             aria-hidden="true"
           >
             {digits.map((d, i) => (
