@@ -1,7 +1,28 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCountdown } from "../hooks/useCountdown";
 import { EASE, VIEWPORT, stagger } from "../lib/motion";
+
+/**
+ * Tracks an element's rendered width in px via ResizeObserver.
+ * Used instead of CSS container-query units (`cqw`) for the digit font-size: some WebKit builds on
+ * iOS fail to size `cqw` text inside this nested aspect-ratio/overflow-hidden ring (the text computes
+ * to zero size and disappears), while a plain px value from measured layout is always reliable.
+ */
+function useWidth() {
+  const ref = useRef(null);
+  const [width, setWidth] = useState(0);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    setWidth(el.getBoundingClientRect().width);
+    if (typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(([entry]) => setWidth(entry.contentRect.width));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  return [ref, width];
+}
 
 /** A single rolling digit: the old number lifts away as the new one rises in. */
 function Digit({ value }) {
@@ -41,13 +62,14 @@ function Unit({ value, label, max, from, to }) {
   const ease = wrapped ? "1.1s cubic-bezier(.22,1,.36,1)" : "1s linear";
   const digits = String(value).padStart(2, "0").split("");
   const id = `cd-${label}`;
+  const [ringRef, ringWidth] = useWidth();
 
   return (
     <motion.div
       variants={{ hidden: { opacity: 0, y: 40, scale: 0.85 }, show: { opacity: 1, y: 0, scale: 1, transition: { duration: 1.4, ease: EASE } } }}
       className="flex w-full flex-col items-center"
     >
-      <div className="@container group relative aspect-square w-full max-w-46">
+      <div ref={ringRef} className="group relative aspect-square w-full max-w-46">
         <div className="halo absolute inset-[-14%] rounded-full" style={{ background: `radial-gradient(circle, ${to}55 0%, ${to}18 45%, transparent 70%)` }} />
 
         {/* slow dotted outer ring */}
@@ -96,8 +118,14 @@ function Unit({ value, label, max, from, to }) {
         >
           <div className="glint absolute inset-y-0 left-[-70%] w-[45%] opacity-40" style={{ background: "linear-gradient(100deg, transparent 20%, rgb(255 244 214 / .8) 50%, transparent 80%)" }} aria-hidden="true" />
           <div
-            className="text-gold-gradient flex justify-center font-display text-[31cqw] leading-none font-light"
-            style={{ fontVariantNumeric: "lining-nums tabular-nums", textShadow: "0 0 12px rgb(240 200 120 / 0.5)" }}
+            className="text-gold-gradient flex justify-center font-display text-[9vw] leading-none font-light sm:text-[5vw]"
+            style={{
+              fontVariantNumeric: "lining-nums tabular-nums",
+              textShadow: "0 0 12px rgb(240 200 120 / 0.5)",
+              // measured px, not `cqw` — some iOS WebKit builds fail to size container-query units inside
+              // this nested aspect-ratio/overflow-hidden ring and the text disappears; px always works
+              fontSize: ringWidth ? `${ringWidth * 0.31}px` : undefined,
+            }}
             aria-hidden="true"
           >
             {digits.map((d, i) => (
