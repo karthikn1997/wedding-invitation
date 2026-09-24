@@ -113,15 +113,27 @@ function Unit({ value, label, max, from, to }) {
 
         {/* glass face + rolling digits */}
         <div
-          className="absolute inset-[13%] grid place-items-center overflow-hidden rounded-full shadow-[inset_0_0_28px_rgba(0,0,0,0.55),inset_0_0_0_1px_rgba(214,181,107,0.35)]"
-          style={{ background: "radial-gradient(circle at 50% 30%, #6d1f34 0%, #3a0d15 60%, #24080d 100%)" }}
+          className="absolute inset-[13%] grid place-items-center overflow-hidden rounded-full shadow-[inset_0_0_32px_rgba(0,0,0,0.6),inset_0_0_0_1px_rgba(214,181,107,0.4)]"
+          style={{ background: "radial-gradient(circle at 50% 28%, #7a2438 0%, #4a1420 55%, #240810 100%)" }}
         >
+          {/* fine engraved ring around the numeral */}
+          <span
+            className="pointer-events-none absolute inset-[11%] rounded-full"
+            style={{ boxShadow: "inset 0 0 0 1px rgba(240,200,120,0.28), inset 0 1px 2px rgba(0,0,0,0.5)" }}
+            aria-hidden="true"
+          />
           <div className="glint absolute inset-y-0 left-[-70%] w-[45%] opacity-40" style={{ background: "linear-gradient(100deg, transparent 20%, rgb(255 244 214 / .8) 50%, transparent 80%)" }} aria-hidden="true" />
           <div
-            className="text-gold-gradient flex justify-center font-display text-[9vw] leading-none font-light sm:text-[5vw]"
+            className="flex justify-center font-display text-[9vw] leading-none font-light sm:text-[5vw]"
             style={{
               fontVariantNumeric: "lining-nums tabular-nums",
-              textShadow: "0 0 12px rgb(240 200 120 / 0.5)",
+              // A solid engraved-gold numeral, not a `background-clip: text` gradient fill: on iOS Safari a
+              // gradient-clip on this *wrapper* — with the actual glyphs several levels down inside an
+              // AnimatePresence digit that gets its own transform — reliably fails to paint at all (the ring
+              // itself renders fine since none of it depends on this). A solid colour + layered shadow reads
+              // as a warm gold medallion and renders identically everywhere.
+              color: "#f2dca3",
+              textShadow: "0 1px 0 rgba(255,246,214,0.45), 0 -1px 2px rgba(58,13,21,0.65), 0 0 16px rgba(240,200,120,0.6)",
               // measured px, not `cqw` — some iOS WebKit builds fail to size container-query units inside
               // this nested aspect-ratio/overflow-hidden ring and the text disappears; px always works
               fontSize: ringWidth ? `${ringWidth * 0.31}px` : undefined,
